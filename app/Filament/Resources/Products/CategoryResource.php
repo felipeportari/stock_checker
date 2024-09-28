@@ -25,6 +25,10 @@ class CategoryResource extends Resource
 
     protected static ?string $pluralModelLabel = 'categorias';
 
+    protected static ?string $navigationGroup = 'Produtos';
+
+    protected static ?string $slug = 'produtos/categorias';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -40,6 +44,7 @@ class CategoryResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('sort', 'asc')
             ->reorderable('sort')
             ->columns([
                 Tables\Columns\TextColumn::make('name')
