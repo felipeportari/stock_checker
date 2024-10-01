@@ -27,7 +27,7 @@ class ProductFactory extends Factory
             'image' => 'product/' . fake()->image(dir: storage_path('app/public/products'), category: 'product', fullPath: false, format: 'jpg'),
             'expiration_date' => fake()->dateTimeBetween('+4 weeks', '+10 weeks'),
             'hash_code' => fake()->ean13(),
-            'market' => fake()->locale(),
+            'market' => 'Mercado ' . fake()->name(),
             'price' => 'R$' . rand(0, 99) . ',' . rand(0, 9) . '0',
             'quantity' => rand(0, 10),
         ];
