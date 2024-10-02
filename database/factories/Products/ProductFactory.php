@@ -24,7 +24,7 @@ class ProductFactory extends Factory
         return [
             'name' => fake()->words(asText: true),
             'category_id' => rand(1, 3),
-            'image' => 'product/' . fake()->image(dir: storage_path('app/public/products'), category: 'product', fullPath: false, format: 'jpg'),
+            'image' => 'products/' . fake()->image(dir: storage_path('app/public/products'), category: 'product', fullPath: false, format: 'jpg'),
             'expiration_date' => fake()->dateTimeBetween('+4 weeks', '+10 weeks'),
             'hash_code' => fake()->ean13(),
             'market' => 'Mercado ' . fake()->name(),
