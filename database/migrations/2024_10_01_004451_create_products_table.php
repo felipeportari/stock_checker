@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('category_id')->references('id')->on('categories');
             $table->string('image');
             $table->date('expiration_date');
-            $table->string('hash_code');
+            $table->string('barcode');
             $table->string('market');
             $table->string('price');
             $table->integer('quantity');
