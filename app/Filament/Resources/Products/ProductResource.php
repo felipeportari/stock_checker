@@ -67,6 +67,9 @@ class ProductResource extends Resource
                         Forms\Components\FileUpload::make('image')
                             ->label('Imagem')
                             ->image()
+                            ->imageEditor()
+                            ->imageEditorMode(2)
+                            ->directory('products')
                             ->required(),
                     ])
             ]);
