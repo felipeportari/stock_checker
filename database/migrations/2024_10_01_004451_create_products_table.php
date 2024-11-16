@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('category_id')->references('id')->on('categories');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->date('expiration_date');
             $table->string('barcode');
-            $table->string('market');
+            $table->string('market')->nullable();
             $table->string('price');
             $table->integer('quantity');
             $table->timestamps();
