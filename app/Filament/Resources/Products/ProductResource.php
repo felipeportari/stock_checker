@@ -2,13 +2,14 @@
 
 namespace App\Filament\Resources\Products;
 
+use App\Filament\Exports\Products\ProductExporter as ProductsProductExporter;
 use App\Filament\Resources\Products\ProductResource\Pages;
-use App\Filament\Resources\Products\ProductResource\RelationManagers;
 use App\Models\Products\Product;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\ExportAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -139,6 +140,8 @@ class ProductResource extends Resource
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make(),
                 ])
+            ])->headerActions([
+                ExportAction::make()->exporter(ProductsProductExporter::class)
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

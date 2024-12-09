@@ -24,11 +24,11 @@ class ProductFactory extends Factory
         return [
             'name' => fake()->words(asText: true),
             'category_id' => rand(1, 3),
-            'image' => 'products/'.fake()->image(dir: storage_path('app/public/products'), category: 'product', fullPath: false, format: 'jpg'),
+            'image' => fake()->randomElement(['products/' . fake()->image(dir: storage_path('app/public/products'), category: 'product', fullPath: false, format: 'jpg'), null]),
             'expiration_date' => fake()->dateTimeBetween('+4 weeks', '+10 weeks'),
             'barcode' => fake()->ean13(),
-            'market' => 'Mercado '.fake()->name(),
-            'price' => 'R$'.rand(0, 99).','.rand(0, 9).'0',
+            'market' => 'Mercado ' . fake()->name(),
+            'price' => 'R$' . rand(0, 99) . ',' . rand(0, 9) . '0',
             'quantity' => rand(0, 10),
         ];
     }
